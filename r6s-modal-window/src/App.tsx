@@ -4,10 +4,14 @@ import './App.scss';
 interface ModalProps {
 	isModalOpen: boolean;
 	setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  children?: React.ReactNode;
+	children?: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isModalOpen, setIsModalOpen, children }) => {
+const Modal: React.FC<ModalProps> = ({
+	isModalOpen,
+	setIsModalOpen,
+	children,
+}) => {
 	return (
 		<div className={`overlay animated ${isModalOpen ? 'show' : ''}`}>
 			<div className="modal">
@@ -48,11 +52,11 @@ export const App: React.FC = () => {
 				</div>
 			) : null} */}
 
-      {/* with animation */}
+			{/* with animation */}
 			<Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-        <img src="https://media2.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" />
-        <h3>Ты открыл окно</h3>
-      </Modal>
+				<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHhtaTBxaGdhZDRzYmxnaWIxejZvNjdiNmk4azlkMW5ncnB2bHo5ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uiMIJMFYgRaAz5Pcb7/giphy.gif" />
+				<h3>Ты открыл окно</h3>
+			</Modal>
 		</div>
 	);
 };

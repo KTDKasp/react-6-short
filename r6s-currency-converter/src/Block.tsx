@@ -2,7 +2,14 @@ import React from 'react';
 
 const defaultCurrencies = ['RUB', 'USD', 'EUR', 'GBP'];
 
-export const Block: React.FC = ({ value, currency, onChangeValue, onChangeCurrency }) => (
+interface BlockProps {
+  value: string;
+  currency: string;
+  onChangeValue: (value: string) => void;
+  onChangeCurrency: (currency: string) => void;
+}
+
+export const Block: React.FC<BlockProps> = ({ value, currency, onChangeValue, onChangeCurrency }) => (
   <div className="block">
     <ul className="currencies">
       {defaultCurrencies.map((cur) => (
@@ -24,7 +31,7 @@ export const Block: React.FC = ({ value, currency, onChangeValue, onChangeCurren
       onChange={(e) => onChangeValue(e.target.value)}
       value={value}
       type="number"
-      placeholder={0}
+      placeholder="0"
     />
   </div>
 );
